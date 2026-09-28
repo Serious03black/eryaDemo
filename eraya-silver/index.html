@@ -4,364 +4,438 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Eraya Silver — Premium handcrafted silver jewellery. Discover timeless designs shaped with intention, rooted in Indian craftsmanship and modern elegance.">
-  <meta name="keywords" content="Eraya Silver, premium silver jewellery, handcrafted silver, Indian silver jewellery, luxury silver">
-  <meta name="author" content="Eraya Silver">
   <meta name="theme-color" content="#4E5923">
 
   <title>Eraya Silver — Silver, Shaped with Intention</title>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body>
+<body class="smooth-scroll-body">
 
-  <!-- ═══ Page Loader ═══ -->
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Page Loader -->
   <div class="page-loader" id="pageLoader">
     <span class="loader-brand">Eraya</span>
-    <div class="loader-line"></div>
+    <div class="loader-line">
+      <div class="loader-progress"></div>
+    </div>
+    <span class="loader-percent">0%</span>
   </div>
 
-  <!-- ═══ Navigation ═══ -->
+  <!-- Page Transition Overlay -->
+  <div class="page-transition">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+
+  <!-- Navigation -->
   <nav class="nav" id="mainNav">
-    <a href="#" class="nav-logo">Eraya</a>
+    <a href="index.html" class="nav-logo">Eraya</a>
     <ul class="nav-links">
-      <li><a href="#collections">Collections</a></li>
-      <li><a href="#craftsmanship">Craftsmanship</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#journal">Journal</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="#collections" data-scroll-to>
+          <span class="link-text">Collections</span>
+          <span class="link-hover">Collections</span>
+        </a>
+      </li>
+      <li>
+        <a href="#craftsmanship" data-scroll-to>
+          <span class="link-text">Craftsmanship</span>
+          <span class="link-hover">Craftsmanship</span>
+        </a>
+      </li>
+      <li>
+        <a href="#about" data-scroll-to>
+          <span class="link-text">About</span>
+          <span class="link-hover">About</span>
+        </a>
+      </li>
+      <li>
+        <a href="#journal" data-scroll-to>
+          <span class="link-text">Journal</span>
+          <span class="link-hover">Journal</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contact" data-scroll-to>
+          <span class="link-text">Contact</span>
+          <span class="link-hover">Contact</span>
+        </a>
+      </li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- ═══ Mobile Navigation ═══ -->
+  <!-- Mobile Navigation -->
   <div class="mobile-nav" id="mobileNav">
     <ul class="mobile-nav-links">
-      <li><a href="#collections" class="mobile-link">Collections</a></li>
-      <li><a href="#craftsmanship" class="mobile-link">Craftsmanship</a></li>
-      <li><a href="#about" class="mobile-link">About</a></li>
-      <li><a href="#journal" class="mobile-link">Journal</a></li>
-      <li><a href="#contact" class="mobile-link">Contact</a></li>
-      <li><a href="#" class="mobile-link">Shop</a></li>
+      <li><a href="#collections" class="mobile-link" data-scroll-to>Collections</a></li>
+      <li><a href="#craftsmanship" class="mobile-link" data-scroll-to>Craftsmanship</a></li>
+      <li><a href="#about" class="mobile-link" data-scroll-to>About</a></li>
+      <li><a href="#journal" class="mobile-link" data-scroll-to>Journal</a></li>
+      <li><a href="#contact" class="mobile-link" data-scroll-to>Contact</a></li>
     </ul>
   </div>
 
-  <!-- ═══ Hero Section ═══ -->
-  <section class="hero" id="hero">
-    <div class="hero-bg">
-      <img src="assets/hero.jpg" alt="Eraya Silver — Luxury handcrafted silver necklace">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">Eraya</h1>
-      <div class="hero-divider"></div>
-      <p class="hero-subtitle">Silver, shaped with intention.</p>
-    </div>
-    <div class="hero-scroll">
-      <span>Discover</span>
-      <div class="hero-scroll-line"></div>
-    </div>
-  </section>
+  <!-- Main Content Wrapper for Locomotive Scroll -->
+  <main id="main-container" data-scroll-container>
 
-  <!-- ═══ Brand Introduction ═══ -->
-  <section class="brand-intro" id="brandIntro">
-    <div class="brand-intro-inner">
-      <span class="section-label reveal">The Brand</span>
-      <h2 class="reveal reveal-delay-1">
-        Where <em>silver</em> becomes a language of<br>
-        elegance, identity and timeless beauty.
-      </h2>
-      <p class="reveal reveal-delay-2">
-        Every Eraya piece begins as a thought — an intention to create something
-        that speaks beyond its form. Rooted in Indian craftsmanship and shaped
-        by modern sensibility, our silver carries stories that transcend time.
-      </p>
-      <div class="brand-statements reveal reveal-delay-3">
-        <span>Made to be noticed.</span>
-        <span>Designed to be remembered.</span>
+    <!-- Hero Section -->
+    <section class="hero" id="hero" data-scroll-section>
+      <div class="hero-canvas" id="heroCanvas"></div>
+      <div class="hero-bg">
+        <video autoplay loop muted playsinline>
+          <source src="assets/gemini_generated_video_eade24fb.mp4" type="video/mp4">
+        </video>
       </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ═══ Collections ═══ -->
-  <section class="collections" id="collections">
-    <div class="collections-header">
-      <span class="section-label reveal">Jewellery</span>
-      <h2 class="reveal reveal-delay-1">Collections</h2>
-    </div>
-
-    <div class="collection-grid">
-      <!-- Necklaces — Wide -->
-      <div class="collection-item wide reveal-scale" id="collection-necklaces">
-        <img src="assets/hero.jpg" alt="Eraya Silver Necklaces Collection">
-        <div class="collection-item-overlay">
-          <h3 class="collection-item-title">Necklaces</h3>
-          <div class="collection-item-explore">
-            <span>Explore Collection</span>
-            <div class="arrow"></div>
-          </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">Eraya</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Silver, shaped with intention.</p>
+        <div class="hero-cta">
+          <a href="#collections" class="btn-premium magnetic" data-scroll-to>
+            Explore Collections
+            <div class="btn-arrow"></div>
+          </a>
         </div>
       </div>
-
-      <!-- Earrings -->
-      <div class="collection-item reveal-scale reveal-delay-1" id="collection-earrings">
-        <img src="assets/earrings.jpg" alt="Eraya Silver Earrings Collection">
-        <div class="collection-item-overlay">
-          <h3 class="collection-item-title">Earrings</h3>
-          <div class="collection-item-explore">
-            <span>Explore Collection</span>
-            <div class="arrow"></div>
-          </div>
-        </div>
+      <div class="hero-scroll" data-scroll data-scroll-speed="1.5">
+        <span>Scroll</span>
+        <div class="hero-scroll-line"></div>
       </div>
+    </section>
 
-      <!-- Rings -->
-      <div class="collection-item reveal-scale reveal-delay-2" id="collection-rings">
-        <img src="assets/rings.jpg" alt="Eraya Silver Rings Collection">
-        <div class="collection-item-overlay">
-          <h3 class="collection-item-title">Rings</h3>
-          <div class="collection-item-explore">
-            <span>Explore Collection</span>
-            <div class="arrow"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bracelets -->
-      <div class="collection-item reveal-scale reveal-delay-1" id="collection-bracelets">
-        <img src="assets/bracelets.jpg" alt="Eraya Silver Bracelets Collection">
-        <div class="collection-item-overlay">
-          <h3 class="collection-item-title">Bracelets</h3>
-          <div class="collection-item-explore">
-            <span>Explore Collection</span>
-            <div class="arrow"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Statement Pieces -->
-      <div class="collection-item reveal-scale reveal-delay-2" id="collection-statement">
-        <img src="assets/statement.jpg" alt="Eraya Silver Statement Pieces Collection">
-        <div class="collection-item-overlay">
-          <h3 class="collection-item-title">Statement Pieces</h3>
-          <div class="collection-item-explore">
-            <span>Explore Collection</span>
-            <div class="arrow"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ Craftsmanship ═══ -->
-  <section class="craftsmanship" id="craftsmanship">
-    <div class="craft-grid">
-      <div class="craft-image reveal-left">
-        <img src="assets/workshop.jpg" alt="Eraya Silver — Artisan craftsmanship in our workshop">
-        <div class="craft-image-frame"></div>
-      </div>
-      <div class="craft-content">
-        <span class="section-label reveal">Craftsmanship</span>
-        <h2 class="reveal reveal-delay-1">
-          Every piece carries the<br>
-          <em>weight of hands</em> that<br>
-          shaped it.
+    <!-- Brand Introduction -->
+    <section class="brand-intro" id="brandIntro" data-scroll-section>
+      <div class="brand-intro-inner">
+        <span class="section-label section-label-dark gs-reveal">The Brand</span>
+        <h2 class="gs-reveal">
+          Where <em>silver</em> becomes a language of<br>
+          elegance, identity and timeless beauty.
         </h2>
-        <p class="reveal reveal-delay-2">
-          Our artisans work with techniques passed down through generations.
-          Each curve, each texture, each carefully set stone is the result
-          of patient, deliberate craftsmanship that no machine can replicate.
+        <p class="gs-reveal">
+          Every Eraya piece begins as a thought — an intention to create something
+          that speaks beyond its form. Rooted in Indian craftsmanship and shaped
+          by modern sensibility, our silver carries stories that transcend time.
         </p>
-        <p class="reveal reveal-delay-3">
-          From raw silver to finished piece — the journey is one of intention,
-          precision and an unwavering commitment to beauty.
+        <div class="brand-statements">
+          <span class="gs-reveal">Made to be noticed.</span>
+          <span class="gs-reveal">Designed to be remembered.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-section" data-scroll-section>
+      <div class="marquee-track">
+        <span>Premium Silver</span><span class="dot"></span>
+        <span>Handcrafted Excellence</span><span class="dot"></span>
+        <span>Timeless Design</span><span class="dot"></span>
+        <span>Modern Heritage</span><span class="dot"></span>
+        <span>Eraya Identity</span><span class="dot"></span>
+        <span>Premium Silver</span><span class="dot"></span>
+        <span>Handcrafted Excellence</span><span class="dot"></span>
+        <span>Timeless Design</span><span class="dot"></span>
+        <span>Modern Heritage</span><span class="dot"></span>
+        <span>Eraya Identity</span><span class="dot"></span>
+      </div>
+    </div>
+
+    <!-- Collections (Horizontal Scroll) -->
+    <section class="collections" id="collections" data-scroll-section>
+      <div class="collections-header">
+        <span class="section-label section-label-light gs-reveal">Curated</span>
+        <h2 class="gs-reveal">Collections</h2>
+      </div>
+
+      <div class="horizontal-scroll-wrapper" id="horizontalScroll">
+        <div class="horizontal-scroll-track" id="horizontalTrack">
+          <!-- Card 1 -->
+          <div class="collection-card">
+            <div class="collection-card-image">
+              <img src="assets/earrings.jpg" alt="Earrings">
+              <span class="collection-card-number">01</span>
+            </div>
+            <div class="collection-card-content">
+              <h3 class="collection-card-title">Earrings</h3>
+              <span class="collection-card-count">12 Pieces</span>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="collection-card">
+            <div class="collection-card-image">
+              <img src="assets/rings.jpg" alt="Rings">
+              <span class="collection-card-number">02</span>
+            </div>
+            <div class="collection-card-content">
+              <h3 class="collection-card-title">Rings</h3>
+              <span class="collection-card-count">8 Pieces</span>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="collection-card">
+            <div class="collection-card-image">
+              <img src="assets/bracelets.jpg" alt="Bracelets">
+              <span class="collection-card-number">03</span>
+            </div>
+            <div class="collection-card-content">
+              <h3 class="collection-card-title">Bracelets</h3>
+              <span class="collection-card-count">6 Pieces</span>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="collection-card">
+            <div class="collection-card-image">
+              <img src="assets/statement.jpg" alt="Statement">
+              <span class="collection-card-number">04</span>
+            </div>
+            <div class="collection-card-content">
+              <h3 class="collection-card-title">Statement</h3>
+              <span class="collection-card-count">4 Pieces</span>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="collection-card">
+            <div class="collection-card-image">
+              <img src="assets/hero.jpg" alt="Necklaces">
+              <span class="collection-card-number">05</span>
+            </div>
+            <div class="collection-card-content">
+              <h3 class="collection-card-title">Necklaces</h3>
+              <span class="collection-card-count">10 Pieces</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Craftsmanship -->
+    <section class="craftsmanship" id="craftsmanship" data-scroll-section>
+      <div class="craft-grid">
+        <div class="craft-image gs-reveal">
+          <div class="craft-image-reveal"></div>
+          <img src="assets/workshop.jpg" alt="Workshop" data-scroll data-scroll-speed="-1.5">
+        </div>
+        <div class="craft-content">
+          <span class="section-label section-label-dark gs-reveal">The Process</span>
+          <h2 class="gs-reveal">
+            Every piece carries the<br>
+            <em>weight of hands</em> that<br>
+            shaped it.
+          </h2>
+          <p class="gs-reveal">
+            Our artisans work with techniques passed down through generations.
+            Each curve, each texture, each carefully set stone is the result
+            of patient, deliberate craftsmanship that no machine can replicate.
+          </p>
+          <div class="craft-values gs-reveal">
+            <div class="craft-value"><div class="craft-value-dot"></div><span>Handcrafted</span></div>
+            <div class="craft-value"><div class="craft-value-dot"></div><span>925 Sterling</span></div>
+            <div class="craft-value"><div class="craft-value-dot"></div><span>Heritage</span></div>
+          </div>
+          <div class="gs-reveal" style="margin-top: 2rem;">
+            <a href="#" class="btn-premium btn-dark magnetic">
+              Discover Craft
+              <div class="btn-arrow"></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Story -->
+    <section class="brand-story" id="about" data-scroll-section>
+      <div class="brand-story-inner">
+        <span class="section-label section-label-light gs-reveal">Philosophy</span>
+        <p class="brand-story-quote gs-reveal">
+          We don't just make jewellery. We create <em>expressions of identity</em> —
+          pieces that carry meaning, tell stories, and become part of the
+          <em>lives they adorn</em>.
         </p>
-        <div class="craft-values reveal reveal-delay-4">
-          <div class="craft-value">
-            <div class="craft-value-dot"></div>
-            <span>Handcrafted</span>
+
+        <div class="brand-pillars">
+          <div class="brand-pillar gs-reveal">
+            <h4>Identity</h4>
+            <p>Silver is more than a metal. It is a medium for self-expression where heritage meets contemporary design.</p>
           </div>
-          <div class="craft-value">
-            <div class="craft-value-dot"></div>
-            <span>925 Sterling</span>
+          <div class="brand-pillar gs-reveal">
+            <h4>Inspiration</h4>
+            <p>Drawn from the textures of India — reimagined through a modern lens that speaks to today's aesthetic.</p>
           </div>
-          <div class="craft-value">
-            <div class="craft-value-dot"></div>
-            <span>Artisan Made</span>
-          </div>
-          <div class="craft-value">
-            <div class="craft-value-dot"></div>
-            <span>Heritage Techniques</span>
-          </div>
-          <div class="craft-value">
-            <div class="craft-value-dot"></div>
-            <span>Ethical Silver</span>
+          <div class="brand-pillar gs-reveal">
+            <h4>Vision</h4>
+            <p>To establish silver as the material of choice for those who seek elegance without excess.</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section" data-scroll-section>
+      <div class="stats-grid">
+        <div class="stat-item gs-reveal">
+          <div class="stat-number" data-target="925">0</div>
+          <div class="stat-label">Sterling Grade</div>
+        </div>
+        <div class="stat-item gs-reveal">
+          <div class="stat-number" data-target="40">0</div>
+          <div class="stat-label">Artisans</div>
+        </div>
+        <div class="stat-item gs-reveal">
+          <div class="stat-number" data-target="100">0</div>
+          <div class="stat-label">Percent Handcrafted</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section class="editorial" id="journal" data-scroll-section>
+      <div class="editorial-inner">
+        <div class="editorial-header">
+          <h2 class="gs-reveal">Journal</h2>
+          <a href="#" class="btn-premium btn-dark magnetic gs-reveal">
+            View All
+            <div class="btn-arrow"></div>
+          </a>
+        </div>
+
+        <div class="editorial-grid">
+          <div class="editorial-card gs-reveal">
+            <div class="editorial-card-image">
+              <img src="assets/statement.jpg" alt="Journal" data-scroll data-scroll-speed="-1">
+            </div>
+            <div class="editorial-card-content">
+              <span class="editorial-card-tag">Craftsmanship</span>
+              <h3 class="editorial-card-title">The Language of Silver — How Metal Becomes Meaning</h3>
+            </div>
+          </div>
+          <div class="editorial-card gs-reveal">
+            <div class="editorial-card-image">
+              <img src="assets/earrings.jpg" alt="Journal" data-scroll data-scroll-speed="-1">
+            </div>
+            <div class="editorial-card-content">
+              <span class="editorial-card-tag">Design</span>
+              <h3 class="editorial-card-title">Heritage Reimagined</h3>
+            </div>
+          </div>
+          <div class="editorial-card gs-reveal">
+            <div class="editorial-card-image">
+              <img src="assets/rings.jpg" alt="Journal" data-scroll data-scroll-speed="-1">
+            </div>
+            <div class="editorial-card-content">
+              <span class="editorial-card-tag">Process</span>
+              <h3 class="editorial-card-title">Behind the Bench</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <div id="contact" data-scroll-section>
+      <section class="contact-section">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <span class="section-label section-label-dark gs-reveal">Inquiries</span>
+            <h2 class="gs-reveal">Connect with us.</h2>
+            <p class="gs-reveal">For bespoke pieces, press inquiries, or general questions.</p>
+            <div class="contact-details">
+              <div class="contact-detail-item gs-reveal">
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value"><a href="mailto:hello@erayasilver.com">hello@erayasilver.com</a></div>
+              </div>
+              <div class="contact-detail-item gs-reveal">
+                <div class="contact-detail-label">Studio</div>
+                <div class="contact-detail-value">Jaipur, Rajasthan<br>India</div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-form gs-reveal">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Your full name">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="Your email address">
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="How can we help you?"></textarea>
+            </div>
+            <button class="btn-premium btn-dark magnetic" style="align-self: flex-start; margin-top: 1rem;">
+              Send Message
+              <div class="btn-arrow"></div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <div class="footer-top">
+            <div class="footer-brand gs-reveal">
+              <h3>Eraya Silver</h3>
+              <p>Premium handcrafted silver jewellery rooted in Indian heritage, designed for the modern world.</p>
+            </div>
+            <div class="footer-col gs-reveal">
+              <h4>Explore</h4>
+              <ul>
+                <li><a href="#collections" data-scroll-to>Collections</a></li>
+                <li><a href="#craftsmanship" data-scroll-to>Craftsmanship</a></li>
+                <li><a href="#about" data-scroll-to>About Eraya</a></li>
+              </ul>
+            </div>
+            <div class="footer-col gs-reveal">
+              <h4>Connect</h4>
+              <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Pinterest</a></li>
+                <li><a href="#">Email</a></li>
+              </ul>
+            </div>
+            <div class="footer-col gs-reveal">
+              <h4>Information</h4>
+              <ul>
+                <li><a href="#">Shipping</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom gs-reveal">
+            <p>&copy; 2024 Eraya Silver. All rights reserved.</p>
+            <div class="footer-social">
+              <a href="#">IG</a>
+              <a href="#">TW</a>
+              <a href="#">PI</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
-  </section>
 
-  <!-- ═══ Brand Story ═══ -->
-  <section class="brand-story" id="about">
-    <div class="brand-story-inner">
-      <span class="section-label reveal">About Eraya</span>
-      <p class="brand-story-quote reveal reveal-delay-1">
-        We don't just make jewellery. We create <em>expressions of identity</em> —
-        pieces that carry meaning, tell stories, and become part of the
-        <em>lives they adorn</em>.
-      </p>
+  </main>
 
-      <div class="brand-pillars">
-        <div class="brand-pillar reveal reveal-delay-1">
-          <h4>Philosophy</h4>
-          <p>
-            Silver is more than a metal. It is a medium for self-expression —
-            a canvas where heritage meets contemporary design to create
-            something enduring.
-          </p>
-        </div>
-        <div class="brand-pillar reveal reveal-delay-2">
-          <h4>Inspiration</h4>
-          <p>
-            Drawn from the textures of India — its architecture, its textiles,
-            its ancient motifs — reimagined through a modern lens that speaks
-            to today's discerning aesthetic.
-          </p>
-        </div>
-        <div class="brand-pillar reveal reveal-delay-3">
-          <h4>Vision</h4>
-          <p>
-            To establish silver as the material of choice for those who seek
-            elegance without excess — beauty that is understated, intentional,
-            and authentically crafted.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ Journal / Editorial ═══ -->
-  <section class="editorial" id="journal">
-    <div class="editorial-inner">
-      <div class="editorial-header">
-        <h2 class="reveal">Journal</h2>
-        <a href="#" class="reveal reveal-delay-1">View All →</a>
-      </div>
-
-      <div class="editorial-grid">
-        <div class="editorial-card reveal reveal-delay-1" id="journal-1">
-          <div class="editorial-card-image">
-            <img src="assets/statement.jpg" alt="The Language of Silver — Eraya Journal">
-          </div>
-          <div class="editorial-card-content">
-            <span class="editorial-card-tag">Craftsmanship</span>
-            <h3 class="editorial-card-title">The Language of Silver — How Metal Becomes Meaning</h3>
-          </div>
-        </div>
-
-        <div class="editorial-card reveal reveal-delay-2" id="journal-2">
-          <div class="editorial-card-image">
-            <img src="assets/earrings.jpg" alt="Heritage Reimagined — Eraya Journal">
-          </div>
-          <div class="editorial-card-content">
-            <span class="editorial-card-tag">Design</span>
-            <h3 class="editorial-card-title">Heritage Reimagined — Indian Motifs in Modern Form</h3>
-          </div>
-        </div>
-
-        <div class="editorial-card reveal reveal-delay-3" id="journal-3">
-          <div class="editorial-card-image">
-            <img src="assets/rings.jpg" alt="The Making Process — Eraya Journal">
-          </div>
-          <div class="editorial-card-content">
-            <span class="editorial-card-tag">Process</span>
-            <h3 class="editorial-card-title">Behind the Bench — A Day in Our Workshop</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ Newsletter ═══ -->
-  <section class="newsletter" id="contact">
-    <div class="newsletter-inner reveal">
-      <h3>Stay with Eraya</h3>
-      <p>
-        Receive curated stories of craftsmanship, new collections,
-        and exclusive invitations — delivered with intention.
-      </p>
-      <form class="newsletter-form" id="newsletterForm">
-        <input type="email" placeholder="Your email address" required aria-label="Email address">
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ═══ Footer ═══ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <h3>Eraya Silver</h3>
-          <p>
-            Premium handcrafted silver jewellery rooted in Indian heritage,
-            designed for the modern world. Silver, shaped with intention.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="#collections">Collections</a></li>
-            <li><a href="#craftsmanship">Craftsmanship</a></li>
-            <li><a href="#about">About Eraya</a></li>
-            <li><a href="#journal">Journal</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Email</a></li>
-            <li><a href="#">WhatsApp</a></li>
-            <li><a href="#">Pinterest</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Information</h4>
-          <ul>
-            <li><a href="#">Shipping</a></li>
-            <li><a href="#">Returns</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2024 Eraya Silver. All rights reserved.</p>
-        <div class="footer-social">
-          <a href="#">IG</a>
-          <a href="#">TW</a>
-          <a href="#">PI</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <!-- GSAP & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Locomotive Scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  
   <script src="script.js"></script>
 </body>
 </html>
